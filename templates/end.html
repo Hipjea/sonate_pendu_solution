@@ -15,9 +15,11 @@
 <p>Tentative : {{ user_input.upper() }}</p>
 {% endif %}
 
-{% if guess %}
+{% if won %}
 <p>Bravo !</p>
-<a href="/reset">Reset</a>
+{% else %}
+<p>Dommage !</p>
 {% endif %}
+<a href="/reset">Reset</a>
 
 {% endblock %}

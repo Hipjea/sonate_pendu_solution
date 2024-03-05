@@ -89,9 +89,8 @@ def guess():
     mot = get_word()
     longueur = len(mot)
     mot_indice = mot
-    guess = False
 
-    debug_game()
+    debug_game(mot)
 
     if request.method == "POST":
         user_input = request.form["user_input"][0].lower()
@@ -106,13 +105,19 @@ def guess():
             life -= 1
 
         if display == mot:
-            guess = True
+            won = True
             return render_template(
-                "end.html", user_name=user_name, life=life, guess=guess, secret_word=display
+                "end.html", user_name=user_name, life=life, secret_word=display, won=won
+            )
+
+        if life <= 0:
+            won = False
+            return render_template(
+                "end.html", user_name=user_name, life=life, secret_word=display, won=won
             )
 
         return render_template(
-            "play.html", user_name=user_name, life=life, user_input=user_input, guess=guess, secret_word=display
+            "play.html", user_name=user_name, life=life, user_input=user_input, secret_word=display
         )
 
     return render_template("play.html", user_name=user_name, life=life, secret_word=display)
@@ -123,11 +128,12 @@ def reset():
     """
     Remise à zéro du jeu.
     """
-    global mot, won, score, found
+    global mot, won, score, life, found
 
     mot = False
     won = False
     score = 0
+    life = 5
     found = []
 
     return render_template("home.html")
