@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+body {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #111618;
+  color: #000;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+body .wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: #111618;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* 
+ * Header
+ */
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+header .content,
+footer .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+header .content h1 {
+  margin: 0;
+  color: #f7d413;
+  font-size: 4em;
+  text-shadow: 3px 3px 0px #ac07c5
+}
+
+
+/* 
+ * Content
+ */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+#content {
+  background-color: #242e35;
+  color: #FFFFFF;
+  padding: 20px;
+  font-size: 2em;
+  max-width: 800px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 10px 15px -3px #101010, 0 4px 6px -4px #101010, inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+#content .alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+form[method="post"] {
+  display: flex;
+  align-items: center;
+}
+
+#content .alphabet form {
+  margin: 5px;
+}
+
+
+/* 
+ * Inputs
+ */
+
+input[type="text"] {
+  padding: 1px 12px;
+  border: 1px solid #f7d413;
+  box-sizing: border-box;
+  font-family: "VT323", monospace;
+  font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="text"]:active {
+  outline: none;
+}
+
+
+/* 
+ * Buttons
+ */
+
+.button,
+button[type="submit"] {
+  background: #f7d413;
+  border: none;
+  font-family: "VT323", monospace;
+  color: #ac07c5;
+  padding: 2px 12px;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-decoration: none;
+  cursor: pointer;
+  transform: scale(1);
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}
+
+.button:hover,
+button[type="submit"]:hover {
+  background: #ac07c5;
+  color: #f7d413;
+  transform: scale(1.2);
+}
+
+
+/* 
+ * Footer
+ */
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 25px;
+  font-size: 1em;
+}
+
+footer .content {
+  padding: 0;
+  color: #FFFFFF;
+  font-family: monospace;
+}
+
+footer .content a {
+  color: #f7d413;
+}
+
+/* 
+ * Utilities
+ */
+
+.mb-4 {
+  margin-bottom: 40px;
+}
+
+.me-2 {
+  margin-right: 20px;
+}
+
+.clues {
+  letter-spacing: 5px;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+  -webkit-animation-duration: 4s;
+}
+
+
+/* 
+ * Keyframes
+ */
+
+@-webkit-keyframes blink {
+  0% {
+    color: white;
+  }
+
+  50% {
+    color: #f7d413;
+  }
+
+  100% {
+    color: white;
+  }
+}

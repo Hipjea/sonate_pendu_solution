@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Entrez votre nom :</h2>
+
+<form method="post" action="{{ url_for('play') }}">
+  <input type="text" id="user_name" name="user_name" value="" class="me-2" required>
+  <button type="submit">Jouer</button>
+</form>
+
+{% endblock %}

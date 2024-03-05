@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}Partie de {{ user_name }}{% endblock %}
+
+{% block content %}
+
+<h2>Partie de {{ user_name }}</h2>
+<p>Vies : {{ life }}</p>
+
+{% if secret_word %}
+<p>Mot à trouver : <span class="clues">{{ secret_word.upper() }}</span></p>
+{% endif %}
+
+{% if user_input and not guess %}
+<p>Tentative : {{ user_input.upper() }}</p>
+{% endif %}
+
+{% if guess %}
+<p>Bravo !</p>
+<a href="/reset">Reset</a>
+{% endif %}
+
+{% endblock %}
