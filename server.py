@@ -1,6 +1,7 @@
 import random
 from flask import Flask, render_template, request
 
+
 # Déclaration de la variable globale de l'application Flask :
 app = Flask(__name__)
 
@@ -17,15 +18,12 @@ def debug_game(message):
     """
     Fonction permettant la mise en forme en couleur des logs dans la console pour le debug.
     """
-    BLUE = "\033[94m"
-    GREEN = "\033[92m"
     ORANGE = "\033[93m"
-    RED = "\033[91m"
     END = "\033[0m"
 
-    print("{}{}{}".format(RED, "#" * 80, END))
-    print("{}word to find : {}{}".format(RED, message, END))
-    print("{}{}{}".format(RED, "#" * 80, END))
+    print("{}{}{}".format(ORANGE, "#" * 80, END))
+    print("{}word to find : {}{}".format(ORANGE, message, END))
+    print("{}{}{}".format(ORANGE, "#" * 80, END))
 
 
 def take_a_word(filepath):
@@ -64,7 +62,7 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/play", methods=["GET", "POST"])
+@app.route("/play", methods=["POST"])
 def play():
     """
     Affichage de la page du jeu après lancement.
@@ -79,7 +77,7 @@ def play():
     return render_template("play.html", user_name=user_name, life=life, secret_word=display)
 
 
-@app.route("/guess", methods=["GET", "POST"])
+@app.route("/guess", methods=["POST"])
 def guess():
     """
     Affichage de la page du jeu après une tentative.
@@ -89,12 +87,12 @@ def guess():
     mot = get_word()
     longueur = len(mot)
     mot_indice = mot
-
     debug_game(mot)
 
-    if request.method == "POST":
-        user_input = request.form["user_input"][0].lower()
+    # Récupération de la valeur de l'input du formulaire :
+    user_input = request.form.get("user_input").lower()
 
+    if user_input:
         if user_input in mot:
             for index in range(len(mot)):
                 if mot[index] == user_input:
