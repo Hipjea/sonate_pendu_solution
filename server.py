@@ -1,4 +1,6 @@
 import random
+
+from unidecode import unidecode
 from flask import Flask, render_template, request
 
 
@@ -51,7 +53,7 @@ def get_word():
         mot = take_a_word("static/dictionnaire.txt").split(";")[0]
         display = "_" * len(mot)
 
-    return mot.lower()
+    return unidecode(mot.lower())
 
 
 @app.route("/")
