@@ -8,7 +8,10 @@
 <p>Vies : {{ life }}</p>
 
 <div class="alphabet">
+  <audio id="audio" src="{{ url_for('static', filename='click.m4a') }}"></audio>
+
   {% set alphabet = 'abcdefghijklmnopqrstuvwxyz' %}
+
   {% for letter in alphabet %}
   <form method="post" action="{{ url_for('guess') }}">
     <input type="hidden" id="user_input" name="user_input" value="{{ letter.upper() }}">
@@ -29,5 +32,25 @@
 <p>Bravo !</p>
 <a href="/reset">Reset</a>
 {% endif %}
+
+
+<script type="text/javascript">
+  // Cette partie est omplètement optionnelle
+  const forms = document.querySelectorAll('form');
+  const audio = document.querySelector('#audio');
+
+  forms.forEach(form => {
+    // On attache un événement au submit (envoi du formulaire)
+    // à chaque formulaire correspondant à une lettre.
+    form.addEventListener('submit', event => {
+      // On empêche l'envoi du formulaire le temps de faire ce qu'on veut.
+      event.preventDefault();
+      audio.play();
+      // On laisse un léger délai (150ms) avant de valider l'envoi
+      // du formulaire pour que l'audio ait le temps d'être joué.
+      setTimeout(() => form.submit(), 150);
+    });
+  });
+</script>
 
 {% endblock %}

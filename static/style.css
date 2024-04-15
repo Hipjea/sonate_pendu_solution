@@ -187,6 +187,10 @@ footer .content a {
   -webkit-animation-duration: 4s;
 }
 
+.solution {
+  color: #fb0068;
+}
+
 
 /* 
  * Keyframes

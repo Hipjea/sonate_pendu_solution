@@ -111,7 +111,7 @@ def guess():
         if life <= 0:
             won = False
             return render_template(
-                "end.html", user_name=user_name, life=life, secret_word=display, won=won
+                "end.html", user_name=user_name, life=life, secret_word=display, won=won, solution=mot
             )
 
         return render_template(
@@ -134,7 +134,7 @@ def reset():
     life = 5
     found = []
 
-    return render_template("home.html")
+    return render_template("home.html", user_name=user_name)
 
 
 if __name__ == "__main__":

@@ -18,8 +18,8 @@
 {% if won %}
 <p>Bravo !</p>
 {% else %}
-<p>Dommage !</p>
+<p>Dommage ! Le mot à deviner était <span class="solution">{{ solution.upper() }}</span></p>
 {% endif %}
-<a href="/reset">Reset</a>
+<a href="/reset" class="button">Reset</a>
 
 {% endblock %}
