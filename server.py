@@ -88,7 +88,6 @@ def guess():
 
     mot = get_word()
     longueur = len(mot)
-    mot_indice = mot
     debug_game(mot)
 
     # Récupération de la valeur de l'input du formulaire :
@@ -99,7 +98,6 @@ def guess():
             for index in range(len(mot)):
                 if mot[index] == user_input:
                     found.extend([user_input])
-                    mot_indice = mot[:index] + "_" + mot[index + 1 :]
                     display = display[:index] + user_input + display[index + 1 :]
         else:
             life -= 1
